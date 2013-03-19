@@ -1,8 +1,19 @@
-﻿@{
+﻿@model IEnumerable<NerdDinnerReloaded.Models.Dinner>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <h2>@ViewBag.Message</h2>
 <p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+@foreach (var d in Model)
+{
+    <li>
+    @d.Title (@d.EventDate)
+    </li>
+}
+
+<p>
+    @Html.ActionLink("Create New Dinner", "Create");
+</p>
 </p>
